@@ -1,0 +1,106 @@
+.farmtoyou-form-table td, .farmtoyou-form-table th {
+    vertical-align: top;
+}
+.farmtoyou-form-table td:first-child {
+    width: 20%;
+    vertical-align: top;
+}
+.farmtoyou-tab-content {
+    display: none;
+}
+
+/* Gallery Images CSS start */
+#wp-gallery-images .inside {
+        margin: 0;
+        padding: 0;
+}
+.add_wp_gallery_images {
+        padding: 12px 12px 12px;
+        clear: both;
+}
+#wp_gallery_images_container {
+        padding: 0 0 0 9px;
+}
+#wp_gallery_images_container ul li.image, #wp_gallery_images_container ul li.add, #wp_gallery_images_container ul li.wc-metabox-sortable-placeholder {
+        width: 80px;
+        float: left;
+        cursor: move;
+        border: 1px solid #d5d5d5;
+        margin: 9px 9px 0 0;
+        background: #f7f7f7;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        position: relative;
+        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+        box-sizing: border-box;         /* Opera/IE 8+ */
+}
+#wp_gallery_images_container ul li.wc-metabox-sortable-placeholder {
+        border: 3px dashed #dddddd;
+        position: relative;
+}
+#wp_gallery_images_container ul li img {
+        width: 100%;
+        height: auto;
+        display: block;
+}
+#wp_gallery_images_container ul ul.actions {
+        position: absolute;
+        top:-8px;
+        right: -8px;
+        padding: 2px;
+        display: none;
+}
+#wp_gallery_images_container ul ul.actions li {
+        float: right;
+        margin: 0 0 0 2px;
+}
+#wp_gallery_images_container ul ul.actions li a {
+        width: 1em;
+        height:1em;
+        margin: 0;
+        height: 0;
+        display: block;
+        overflow: hidden;
+}
+#wp_gallery_images_container ul ul.actions li a.view {
+        font-size:1.4em;
+}
+#wp_gallery_images_container ul ul.actions li a.delete {
+    font-size:1.4em;
+    background-color: #000;
+    -webkit-border-radius:100%;
+    border-radius:100%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    content: "Ã®â‚¬â€œ";
+    font-variant: normal;
+    font-weight: 400;
+    height: 100%;
+    left: 0;
+    line-height: 1;
+    margin: 0;
+    text-align: center;
+    text-indent: 0;
+    text-transform: none;
+    top: 0;
+    width: 100%;
+    padding: 2px;
+    text-decoration: none;
+}
+a.delete:hover {
+    background-color: #a00;
+}
+#wp_gallery_images_container ul li:hover ul.actions {
+    display: block;
+}
+#normal-sortables #wp_gallery_images_container ul li.image,
+#normal-sortables #wp_gallery_images_container ul li.add,
+#normal-sortables #wp_gallery_images_container ul li.wc-metabox-sortable-placeholder {
+    width: inherit; 
+}
+#normal-sortables #wp_gallery_images_container ul li img {
+    width: 150px;
+}
+/* Gallery Images CSS end */

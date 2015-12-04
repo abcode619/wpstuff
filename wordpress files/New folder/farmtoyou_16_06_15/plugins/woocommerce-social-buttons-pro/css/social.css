@@ -1,0 +1,113 @@
+.social-button-container {
+    overflow: visible; 
+    clear: both;
+    padding-top: 5px;
+}
+
+.social-button-facebook {
+    float: left;
+    max-width: 150px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+.social-button-twitter {
+    float: left;
+    width: 80px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+.social-button-plus {
+    float: left;
+    width: 60px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+.social-button-pinterest {
+    float: left;
+    width: 60px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+.social-button-linkedin {
+    float: left;
+    width: 70px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+.social-button-stumbleupon {
+    float: left;
+    width: 85px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+.social-button-tumblr {
+    float: left;
+    width: 70px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+.social-button-fancy {
+    float: left;
+    width: 70px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+.social-button-svpply {
+    float: left;
+    width: 70px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+.social-button-email {
+    float: left;
+    width: 65px;
+    height: 30px; 
+    padding-right: 10px;
+    text-align: right;
+    font-size: 12px;
+    background: #ffffff url("../images/btn_email.png") no-repeat left top;
+}
+
+.social-button {
+    float: left;
+    width: 75px;
+    height: 30px; 
+    padding-right: 10px;
+}
+
+#social-button {
+    padding-top: 10px;
+    height: 30px;
+}
+
+#social-button a {
+    color:#C9C9C9;
+    font-size:13px;
+    text-decoration:underline;
+    text-transform:none;
+}
+
+#social-button a.btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    background: #C9C9C9;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+embed, iframe, object
+{
+    max-width: 635% !important;
+}

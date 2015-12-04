@@ -1,0 +1,88 @@
+/**
+ * Save Testimonial
+ */
+
+require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+
+function fsw_save_testimonial() {
+    $prefix = FSW_META_PREFIX;
+    
+    if( !empty( $_POST['testimonial_title'] ) && !empty( $_POST['testimonial_desc'] ) ) {
+        $testimonial_title = $_POST['testimonial_title'];
+        $testimonial_desc = $_POST['testimonial_desc'];
+        $testimonial_city = !empty( $_POST['testimonial_city'] ) ? $_POST['testimonial_city'] : '';
+        $testimonial_image = !empty( $_FILES['testimonial_image'] ) ? $_FILES['testimonial_image'] : '';
+                
+        $testi_post  = array(
+                                    'post_title'    => $testimonial_title,
+                                    'post_content'  => $testimonial_desc,
+                                    'post_status'   => 'pending',
+                                    'post_type'     => FSW_TESTIMONIAL_POST_TYPE
+                              );
+        $last_id = wp_insert_post( $testi_post );
+        
+        if( !empty( $testimonial_image['name'] ) && !empty( $last_id ) ){
+            $attachment_id = media_handle_upload('testimonial_image', $last_id);
+            
+            if( !empty( $attachment_id ) ){
+                set_post_thumbnail( $last_id, $attachment_id );
+            }
+        }
+        
+        if( !empty( $last_id ) ) {
+            //Update city
+            update_post_meta( $last_id, $prefix . 'testi_city', $testimonial_city );
+            
+            $admin_email = get_option('admin_email');
+            
+            $subject = 'New Testimonial';
+            $testi_id =  base64_encode( $last_id );
+            $link = add_query_arg( array( 'fsw-testi-id'=> $testi_id ), site_url() );
+            
+            $message = '';
+            $message.= "From : ".$testimonial_title."<br>";
+            $message.= "Description : ".$testimonial_desc."<br>";
+            if( !empty( $testimonial_city ) ){
+                $message.="City : ".$testimonial_city."<br>";
+            }
+            $message.= 'Click on link to publish this testimonial<a href="'.$link.'">Click</a>';
+            $headers = array('Content-Type: text/html; charset=UTF-8');
+            
+            wp_mail( $admin_email, $subject, $message, $headers );
+        }       
+        
+    }
+}
+
+/**
+ * Change status of testimonial
+ */
+function fsw_change_status_testimonial(){
+    if( !empty( $_GET['fsw-testi-id'] ) ){
+        $testimonial_id = base64_decode( $_GET['fsw-testi-id'] );
+        
+        if( !empty( $testimonial_id ) && $testimonial_id > 0 ){
+            
+            $args = array(
+                'ID' => $testimonial_id,
+                'post_status' => 'publish'
+            );
+            
+            wp_update_post( $args );
+            $current_url = get_permalink( FSW_TESTIMONIAL_PAGE_ID );
+            wp_redirect( $current_url );
+            exit;
+        }
+    }
+    
+}
+
+
+
+//add action to save testimonial
+add_action( 'wp', 'fsw_save_testimonial' );
+
+//add action to save testimonial
+add_action( 'wp', 'fsw_change_status_testimonial' );
